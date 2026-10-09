@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>body{margin:0;background:#0e0d0c;color:#ece8e0;font-family:'Geist',sans-serif;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none;cursor:pointer;transition:opacity .2s}a:hover{opacity:.65}::selection{background:#e0913f;color:#0e0d0c}input,textarea{font:inherit}</style>
+</helmet>
+<div style="min-height:100vh;background:#0e0d0c;color:#ece8e0;font-family:'Geist',sans-serif">
+
+<header style="position:sticky;top:0;z-index:40;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:16px clamp(20px,4vw,56px);background:rgba(14,13,12,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid #22201d">
+  <a onClick="{{ goHome }}" style="display:flex;align-items:center"><img src="https://cdn.myportfolio.com/31fb5e12-43aa-4cc8-91cf-393834e23bec/283150b1-3d59-454d-8f5e-c9239aee950c_rwc_20x0x1413x356x4096.png?h=67b1c8ffe3207c34e8ba0fa5c4cc09d9" alt="Joshua Shelley-Sak" style="height:30px;width:auto;display:block"></a>
+  <nav style="display:flex;align-items:center;gap:clamp(16px,2.6vw,36px);font-size:14px;flex-wrap:wrap;justify-content:flex-end">
+    <a onClick="{{ goWork }}" style="display:flex;align-items:center;gap:7px"><sc-if value="{{ isWorkNav }}" hint-placeholder-val="{{ false }}"><span style="width:5px;height:5px;border-radius:50%;background:#e0913f"></span></sc-if>Work</a>
+    <a onClick="{{ goServices }}" style="display:flex;align-items:center;gap:7px"><sc-if value="{{ isServices }}" hint-placeholder-val="{{ false }}"><span style="width:5px;height:5px;border-radius:50%;background:#e0913f"></span></sc-if>Services</a>
+    <a onClick="{{ goAbout }}" style="display:flex;align-items:center;gap:7px"><sc-if value="{{ isAbout }}" hint-placeholder-val="{{ false }}"><span style="width:5px;height:5px;border-radius:50%;background:#e0913f"></span></sc-if>About</a>
+    <a href="https://sakshoots.co.uk/blog" target="_blank">Journal</a>
+    <a href="https://sakshoots.square.site/" target="_blank">Prints</a>
+    <a onClick="{{ goContact }}" style="background:#ece8e0;color:#0e0d0c;padding:11px 20px;border-radius:999px;font-size:13px;font-weight:500">Enquire</a>
+  </nav>
+</header>
+
+<sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+<main>
+  <section style="padding:clamp(40px,7vw,96px) clamp(20px,4vw,56px) 40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:40px;align-items:end">
+    <h1 data-reveal="" style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(56px,8.6vw,128px);line-height:.92;letter-spacing:-.025em;margin:0;text-wrap:balance">Spaces, brands &amp; events — seen through a <em style="color:#e0913f">prime</em> lens.</h1>
+    <div data-reveal="" style="display:flex;flex-direction:column;gap:28px;max-width:440px;padding-bottom:10px">
+      <p style="font-size:18px;line-height:1.6;color:#b3ac9f;margin:0;text-wrap:pretty">Bristol-based photographer and videographer for venues, hospitality and creative businesses across the UK.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+        <a onClick="{{ goWork }}" style="background:#ece8e0;color:#0e0d0c;padding:15px 26px;border-radius:999px;font-size:14px;font-weight:500">View the work</a>
+        <a onClick="{{ goContact }}" style="font-size:14px;padding:15px 8px">Start a commission →</a>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:0 clamp(20px,4vw,56px)">
+    <div data-reveal="" style="position:relative;height:clamp(360px,58vw,760px);background:#1a1917">
+      <image-slot id="home-hero" shape="rect" src="https://cdn.myportfolio.com/31fb5e12-43aa-4cc8-91cf-393834e23bec/64c31ed9-7591-4e02-8456-dbe15c06982f_rwc_0x384x3840x2164x3840.jpg?h=bffb5ec9ecb01fbbc7d5e286bccb0770" placeholder="Hero — signature interior"></image-slot>
+      <sc-if value="{{ viewfinder }}" hint-placeholder-val="{{ true }}">
+      <div style="position:absolute;inset:24px;pointer-events:none">
+        <div style="position:absolute;top:0;left:0;width:28px;height:28px;border-top:1.5px solid #ece8e0;border-left:1.5px solid #ece8e0"></div>
+        <div style="position:absolute;top:0;right:0;width:28px;height:28px;border-top:1.5px solid #ece8e0;border-right:1.5px solid #ece8e0"></div>
+        <div style="position:absolute;bottom:0;left:0;width:28px;height:28px;border-bottom:1.5px solid #ece8e0;border-left:1.5px solid #ece8e0"></div>
+        <div style="position:absolute;bottom:0;right:0;width:28px;height:28px;border-bottom:1.5px solid #ece8e0;border-right:1.5px solid #ece8e0"></div>
+        <div style="position:absolute;top:50%;left:50%;width:18px;height:18px;margin:-9px 0 0 -9px;border:1px solid rgba(236,232,224,.7);border-radius:50%"></div>
+        <div style="position:absolute;top:10px;left:44px;display:flex;gap:18px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:#ece8e0;text-shadow:0 1px 8px rgba(0,0,0,.6)"><span style="color:#f0a55a">● FR 001</span><span>35MM</span><span>F/1.8</span><span>1/125</span></div>
+        <div style="position:absolute;bottom:10px;right:44px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:#ece8e0;text-shadow:0 1px 8px rgba(0,0,0,.6)">MIRARI — CHELTENHAM</div>
+      </div>
+      </sc-if>
+    </div>
+  </section>
+
+  <section data-reveal="" style="margin:56px clamp(20px,4vw,56px) 0;padding:26px 0;border-top:1px solid #2a2825;border-bottom:1px solid #2a2825;display:flex;flex-wrap:wrap;align-items:center;gap:24px 56px">
+    <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#8a8377">Recent clients</span>
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px 40px;flex:1;font-family:'Instrument Serif',serif;font-size:30px;color:#cfc8bb">
+      <span>Mirari</span><span><em>Club Ocho</em></span><span>The Lamb Inn</span><span><em>Kissaten</em></span>
+    </div>
+  </section>
+
+  <section style="padding:clamp(72px,10vw,140px) clamp(20px,4vw,56px) 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:40px">
+    <div data-reveal="" style="display:flex;flex-direction:column;gap:18px">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#8a8377">What I shoot</span>
+      <h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(40px,5vw,64px);line-height:1;margin:0">For businesses that <em>live</em> on how they look.</h2>
+    </div>
+    <a data-reveal="" onClick="{{ goServices }}" style="display:flex;flex-direction:column;gap:14px;border-top:1px solid #ece8e0;padding-top:20px">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#e0913f">01 — 24/35MM</span>
+      <span style="font-family:'Instrument Serif',serif;font-size:34px">Interiors &amp; venues</span>
+      <span style="font-size:15px;line-height:1.6;color:#b3ac9f">Restaurants, bars, hotels and homes — delivered for web, press and listings.</span>
+    </a>
+    <a data-reveal="" onClick="{{ goServices }}" style="display:flex;flex-direction:column;gap:14px;border-top:1px solid #ece8e0;padding-top:20px">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#e0913f">02 — 50MM</span>
+      <span style="font-family:'Instrument Serif',serif;font-size:34px">Brand &amp; people</span>
+      <span style="font-size:15px;line-height:1.6;color:#b3ac9f">Team portraits, product and campaign imagery with a cinematic, natural finish.</span>
+    </a>
+    <a data-reveal="" onClick="{{ goServices }}" style="display:flex;flex-direction:column;gap:14px;border-top:1px solid #ece8e0;padding-top:20px">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#e0913f">03 — 85MM</span>
+      <span style="font-family:'Instrument Serif',serif;font-size:34px">Events &amp; music</span>
+      <span style="font-size:15px;line-height:1.6;color:#b3ac9f">Launches, live music and celebrations — atmosphere first, always discreet.</span>
+    </a>
+  </section>
+
+  <section style="margin-top:clamp(72px,10vw,140px);background:#161513;padding:56px 0 64px;border-top:1px solid #22201d;border-bottom:1px solid #22201d">
+    <div style="display:flex;justify-content:space-between;align-items:end;gap:20px;padding:0 clamp(20px,4vw,56px) 32px;flex-wrap:wrap">
+      <h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(40px,5vw,64px);line-height:1;margin:0">Selected <em>frames</em></h2>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:#8a8377">ROLL 26 · SCROLL →</span>
+    </div>
+    <div style="overflow-x:auto;scrollbar-width:none">
+      <div style="display:inline-flex;flex-direction:column;gap:14px;padding:0 clamp(20px,4vw,56px)">
+        <div style="height:12px;background:repeating-linear-gradient(90deg,#34312c 0 14px,transparent 14px 30px)"></div>
+        <div style="display:flex;gap:14px">
+          <sc-for list="{{ featured }}" as="f" hint-placeholder-count="6">
+            <a onClick="{{ f.onClick }}" style="flex:none;width:340px;display:flex;flex-direction:column;gap:12px">
+              <div style="height:440px;background:#1f1d1a"><image-slot id="{{ f.slot }}" shape="rect" placeholder="{{ f.title }}"></image-slot></div>
+              <div style="display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:#8a8377"><span style="color:#e0913f">{{ f.n }}</span><span>{{ f.lens }}</span></div>
+              <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><span style="font-family:'Instrument Serif',serif;font-size:28px">{{ f.title }}</span><span style="font-size:13px;color:#8a8377">{{ f.tag }}</span></div>
+            </a>
+          </sc-for>
+        </div>
+        <div style="height:12px;background:repeating-linear-gradient(90deg,#34312c 0 14px,transparent 14px 30px)"></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:clamp(72px,10vw,140px) clamp(20px,4vw,56px) 0">
+    <div data-reveal="" style="display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:28px">
+      <h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(40px,5vw,64px);line-height:1;margin:0">The <em>index</em></h2>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#8a8377">10 disciplines · hover to preview</span>
+    </div>
+    <div onMouseMove="{{ onIndexMove }}" onMouseLeave="{{ onIndexLeave }}" style="border-top:1px solid #ece8e0">
+      <sc-for list="{{ cats }}" as="c" hint-placeholder-count="10">
+        <a onClick="{{ c.onClick }}" onMouseEnter="{{ c.onEnter }}" style="display:grid;grid-template-columns:56px minmax(0,1fr) auto;gap:20px;align-items:baseline;padding:20px 0;border-bottom:1px solid #2a2825">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#e0913f">{{ c.n }}</span>
+          <span style="font-family:'Instrument Serif',serif;font-size:clamp(30px,4vw,52px);line-height:1;letter-spacing:-.01em">{{ c.name }}</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:#8a8377">{{ c.lens }}</span>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="margin-top:clamp(72px,10vw,140px);padding:0 clamp(20px,4vw,56px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:56px;align-items:center">
+    <div data-reveal="" style="height:560px;background:#1a1917"><image-slot id="home-portrait" shape="rect" placeholder="Portrait of Josh with camera"></image-slot></div>
+    <div data-reveal="" style="display:flex;flex-direction:column;gap:28px">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#8a8377">Approach</span>
+      <p style="font-family:'Instrument Serif',serif;font-size:clamp(36px,4.4vw,58px);line-height:1.04;margin:0;text-wrap:balance">“No zoom. Just primes — so every frame is a <em style="color:#e0913f">decision</em>.”</p>
+      <p style="font-size:17px;line-height:1.7;color:#b3ac9f;margin:0;max-width:520px;text-wrap:pretty">Josh started in concert pits, learning to read light and movement at speed. That instinct now shapes calm, considered work for venues and brands — images that sell a feeling, not just a room.</p>
+      <a onClick="{{ goAbout }}" style="font-size:14px;border-bottom:1px solid currentColor;padding-bottom:3px;align-self:flex-start">More about Josh →</a>
+    </div>
+  </section>
+</main>
+</sc-if>
+
+<sc-if value="{{ isWork }}" hint-placeholder-val="{{ false }}">
+<main>
+  <section style="padding:clamp(40px,6vw,80px) clamp(20px,4vw,56px) 0">
+    <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#8a8377">Portfolio</span>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin:22px 0 0">
+      <sc-for list="{{ catTabs }}" as="t" hint-placeholder-count="10">
+        <a onClick="{{ t.onClick }}" style="padding:9px 16px;border-radius:999px;border:1px solid #3a3732;font-size:13px;background:{{ t.bg }};color:{{ t.fg }}">{{ t.name }}</a>
+      </sc-for>
+    </div>
+  </section>
+  <section style="padding:clamp(48px,6vw,88px) clamp(20px,4vw,56px) 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:40px;align-items:end">
+    <div data-reveal="" style="display:flex;flex-direction:column;gap:22px">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#e0913f">{{ cat.n }} / 10 · {{ cat.lens }}</span>
+      <h1 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(56px,8vw,120px);line-height:.92;letter-spacing:-.025em;margin:0">{{ cat.name }}</h1>
+      <p style="font-size:18px;line-height:1.6;color:#b3ac9f;margin:0;max-width:460px;text-wrap:pretty">{{ cat.blurb }}</p>
+    </div>
+    <div data-reveal="" style="height:440px;background:#1a1917"><image-slot id="cover-{{ cat.slug }}" shape="rect" placeholder="{{ cat.name }} — cover"></image-slot></div>
+  </section>
+  <section style="padding:clamp(56px,7vw,96px) clamp(20px,4vw,56px) 0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,520px),1fr));gap:56px 32px">
+    <sc-for list="{{ projects }}" as="p" hint-placeholder-count="4">
+      <a data-reveal="" onClick="{{ p.onClick }}" style="display:flex;flex-direction:column;gap:16px">
+        <div style="height:420px;background:#1a1917"><image-slot id="{{ p.slot }}" shape="rect" placeholder="{{ p.title }} — lead image"></image-slot></div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;border-top:1px solid #2a2825;padding-top:14px">
+          <span style="font-family:'Instrument Serif',serif;font-size:34px;line-height:1">{{ p.title }}</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#8a8377">{{ p.place }}</span>
+        </div>
+        <span style="font-size:15px;color:#b3ac9f">{{ p.brief }}</span>
+      </a>
+    </sc-for>
+  </section>
+</main>
+</sc-if>
+
+<sc-if value="{{ isProject }}" hint-placeholder-val="{{ false }}">
+<main>
+  <section style="padding:clamp(40px,6vw,80px) clamp(20px,4vw,56px) 0">
+    <a onClick="{{ backToCat }}" style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#8a8377">← {{ proj.catName }}</a>
+    <h1 data-reveal="" style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(64px,10vw,150px);line-height:.9;letter-spacing:-.03em;margin:24px 0 0">{{ proj.title }}</h1>
+    <div data-reveal="" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:24px;margin-top:48px;padding:22px 0;border-top:1px solid #ece8e0;border-bottom:1px solid #2a2825">
+      <div style="display:flex;flex-direction:column;gap:6px"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:#8a8377">LOCATION</span><span style="font-size:15px">{{ proj.place }}</span></div>
+      <div style="display:flex;flex-direction:column;gap:6px"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:#8a8377">BRIEF</span><span style="font-size:15px">{{ proj.brief }}</span></div>
+      <div style="display:flex;flex-direction:column;gap:6px"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:#8a8377">GLASS</span><span style="font-size:15px">{{ proj.lens }}</span></div>
+      <div style="display:flex;flex-direction:column;gap:6px"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:#8a8377">YEAR</span><span style="font-size:15px">{{ proj.year }}</span></div>
+    </div>
+  </section>
+  <section style="padding:40px clamp(20px,4vw,56px) 0;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:16px">
+    <sc-for list="{{ frames }}" as="fr" hint-placeholder-count="9">
+      <div data-reveal="" style="grid-column:{{ fr.col }};display:flex;flex-direction:column;gap:8px">
+        <div style="height:{{ fr.h }};background:#1a1917;position:relative">
+          <image-slot id="{{ fr.slot }}" shape="rect" placeholder="Frame {{ fr.n }}"></image-slot>
+          <a onClick="{{ fr.open }}" title="View full screen" style="position:absolute;top:12px;right:12px;width:38px;height:38px;border-radius:50%;background:rgba(14,13,12,.75);color:#ece8e0;display:flex;align-items:center;justify-content:center;font-size:16px">⤢</a>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.1em;color:#8a8377"><span style="color:#e0913f">FR {{ fr.n }}</span><span>{{ fr.lens }}</span></div>
+      </div>
+    </sc-for>
+  </section>
+  <section style="padding:clamp(72px,9vw,120px) clamp(20px,4vw,56px) 0">
+    <a onClick="{{ nextProj.onClick }}" style="display:flex;justify-content:space-between;align-items:end;gap:24px;border-top:1px solid #ece8e0;padding-top:24px;flex-wrap:wrap">
+      <div style="display:flex;flex-direction:column;gap:12px"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:#8a8377">NEXT PROJECT</span><span style="font-family:'Instrument Serif',serif;font-size:clamp(48px,7vw,96px);line-height:.95">{{ nextProj.title }}</span></div>
+      <span style="font-size:40px;color:#e0913f">→</span>
+    </a>
+  </section>
+</main>
+</sc-if>
+
+<sc-if value="{{ isServices }}" hint-placeholder-val="{{ false }}">
+<main>
+  <section style="padding:clamp(40px,6vw,80px) clamp(20px,4vw,56px) 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:40px;align-items:end">
+    <div data-reveal="" style="display:flex;flex-direction:column;gap:22px">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#8a8377">Services &amp; pricing</span>
+      <h1 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(56px,8vw,120px);line-height:.92;letter-spacing:-.025em;margin:0">Clear scope. <em>Considered</em> images.</h1>
+    </div>
+    <p data-reveal="" style="font-size:18px;line-height:1.6;color:#b3ac9f;margin:0;max-width:440px;text-wrap:pretty">Every shoot is quoted to brief. These starting points cover most commissions — commercial licence and edited, web-ready files included.</p>
+  </section>
+  <section style="padding:clamp(56px,7vw,96px) clamp(20px,4vw,56px) 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:20px">
+    <div data-reveal="" style="display:flex;flex-direction:column;gap:22px;padding:32px;background:#161513;border:1px solid #2a2825">
+      <div style="display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:#8a8377"><span style="color:#e0913f">01</span><span>24–35MM</span></div>
+      <h3 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:40px;line-height:1;margin:0">Interiors &amp; venues</h3>
+      <div style="display:flex;align-items:baseline;gap:8px"><span style="font-size:13px;color:#8a8377">from</span><span style="font-family:'Instrument Serif',serif;font-size:56px;line-height:1">£450</span></div>
+      <ul style="margin:0;padding:20px 0 0;list-style:none;display:flex;flex-direction:column;gap:12px;font-size:15px;color:#cfc8bb;border-top:1px solid #2a2825">
+        <li>Half-day on location</li><li>25 edited images</li><li>Web, press &amp; listing formats</li><li>Delivery within 7 days</li>
+      </ul>
+      <a onClick="{{ goContact }}" style="margin-top:auto;text-align:center;padding:14px;border:1px solid #ece8e0;border-radius:999px;font-size:14px">Enquire</a>
+    </div>
+    <div data-reveal="" style="display:flex;flex-direction:column;gap:22px;padding:32px;background:#ece8e0;color:#0e0d0c;border:1px solid #ece8e0">
+      <div style="display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:#5d574e"><span style="color:#a75d14">02 · MOST BOOKED</span><span>50MM</span></div>
+      <h3 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:40px;line-height:1;margin:0">Brand &amp; people</h3>
+      <div style="display:flex;align-items:baseline;gap:8px"><span style="font-size:13px;color:#5d574e">from</span><span style="font-family:'Instrument Serif',serif;font-size:56px;line-height:1">£650</span></div>
+      <ul style="margin:0;padding:20px 0 0;list-style:none;display:flex;flex-direction:column;gap:12px;font-size:15px;color:#2e2b27;border-top:1px solid #cfc8bb">
+        <li>Creative call &amp; shot list</li><li>Full day, up to 3 setups</li><li>40 edited images</li><li>Optional short-form video</li>
+      </ul>
+      <a onClick="{{ goContact }}" style="margin-top:auto;text-align:center;padding:14px;background:#0e0d0c;color:#ece8e0;border-radius:999px;font-size:14px;font-weight:500">Enquire</a>
+    </div>
+    <div data-reveal="" style="display:flex;flex-direction:column;gap:22px;padding:32px;background:#161513;border:1px solid #2a2825">
+      <div style="display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:#8a8377"><span style="color:#e0913f">03</span><span>35–85MM</span></div>
+      <h3 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:40px;line-height:1;margin:0">Events &amp; music</h3>
+      <div style="display:flex;align-items:baseline;gap:8px"><span style="font-size:13px;color:#8a8377">from</span><span style="font-family:'Instrument Serif',serif;font-size:56px;line-height:1">£350</span></div>
+      <ul style="margin:0;padding:20px 0 0;list-style:none;display:flex;flex-direction:column;gap:12px;font-size:15px;color:#cfc8bb;border-top:1px solid #2a2825">
+        <li>3 hours coverage</li><li>Next-day social preview</li><li>Full gallery in 5 days</li><li>Weddings quoted separately</li>
+      </ul>
+      <a onClick="{{ goContact }}" style="margin-top:auto;text-align:center;padding:14px;border:1px solid #ece8e0;border-radius:999px;font-size:14px">Enquire</a>
+    </div>
+  </section>
+  <section style="padding:clamp(72px,9vw,120px) clamp(20px,4vw,56px) 0">
+    <h2 data-reveal="" style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(40px,5vw,64px);line-height:1;margin:0 0 36px">How it <em>works</em></h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:32px">
+      <div data-reveal="" style="display:flex;flex-direction:column;gap:12px;border-top:1px solid #ece8e0;padding-top:18px"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#e0913f">STEP 01</span><span style="font-family:'Instrument Serif',serif;font-size:28px">Brief</span><span style="font-size:15px;line-height:1.6;color:#b3ac9f">A short call to understand your space, audience and where the images will live.</span></div>
+      <div data-reveal="" style="display:flex;flex-direction:column;gap:12px;border-top:1px solid #ece8e0;padding-top:18px"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#e0913f">STEP 02</span><span style="font-family:'Instrument Serif',serif;font-size:28px">Plan</span><span style="font-size:15px;line-height:1.6;color:#b3ac9f">Shot list, timings and light — scouted so the day runs quietly.</span></div>
+      <div data-reveal="" style="display:flex;flex-direction:column;gap:12px;border-top:1px solid #ece8e0;padding-top:18px"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#e0913f">STEP 03</span><span style="font-family:'Instrument Serif',serif;font-size:28px">Shoot</span><span style="font-size:15px;line-height:1.6;color:#b3ac9f">Prime lenses, natural light where possible, minimal disruption to your team.</span></div>
+      <div data-reveal="" style="display:flex;flex-direction:column;gap:12px;border-top:1px solid #ece8e0;padding-top:18px"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#e0913f">STEP 04</span><span style="font-family:'Instrument Serif',serif;font-size:28px">Deliver</span><span style="font-size:15px;line-height:1.6;color:#b3ac9f">A private gallery of graded images, sized for every channel.</span></div>
+    </div>
+  </section>
+</main>
+</sc-if>
+
+<sc-if value="{{ isAbout }}" hint-placeholder-val="{{ false }}">
+<main>
+  <section style="padding:clamp(40px,6vw,80px) clamp(20px,4vw,56px) 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:56px;align-items:start">
+    <div data-reveal="" style="height:680px;background:#1a1917;position:relative">
+      <image-slot id="about-portrait" shape="rect" placeholder="Portrait — Joshua Shelley-Sak"></image-slot>
+      <div style="position:absolute;bottom:14px;left:14px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:#ece8e0;text-shadow:0 1px 8px rgba(0,0,0,.6);pointer-events:none">SELF · 50MM · F/2</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:30px;padding-top:12px">
+      <span data-reveal="" style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#8a8377">About</span>
+      <h1 data-reveal="" style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(52px,6.6vw,96px);line-height:.94;letter-spacing:-.02em;margin:0">A curious eye, a <em style="color:#e0913f">wandering</em> mind.</h1>
+      <div data-reveal="" style="display:flex;flex-direction:column;gap:18px;font-size:17px;line-height:1.7;color:#cfc8bb;max-width:560px">
+        <p style="margin:0;text-wrap:pretty">I’m Josh — a Bristol-based photographer and videographer. I started in concert photography, where you learn fast how light, movement and atmosphere make a picture.</p>
+        <p style="margin:0;text-wrap:pretty">Today I shoot interiors, brands and events for venues and creative businesses across the UK. I work only with prime lenses: a deliberate limit that keeps the work clear, restrained and intentional.</p>
+        <p style="margin:0;text-wrap:pretty">Alongside commissions I keep experimenting — self-directed projects that feed back into every client shoot.</p>
+      </div>
+      <div data-reveal="" style="display:flex;flex-direction:column;gap:14px">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#8a8377">In the bag</span>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #ece8e0;border-bottom:1px solid #2a2825">
+          <div style="display:flex;flex-direction:column;gap:6px;padding:20px 0"><span style="font-family:'Instrument Serif',serif;font-size:48px;line-height:1">35<span style="font-size:20px">mm</span></span><span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:#8a8377">SPACES</span></div>
+          <div style="display:flex;flex-direction:column;gap:6px;padding:20px 0 20px 20px;border-left:1px solid #2a2825"><span style="font-family:'Instrument Serif',serif;font-size:48px;line-height:1">50<span style="font-size:20px">mm</span></span><span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:#8a8377">PEOPLE</span></div>
+          <div style="display:flex;flex-direction:column;gap:6px;padding:20px 0 20px 20px;border-left:1px solid #2a2825"><span style="font-family:'Instrument Serif',serif;font-size:48px;line-height:1">85<span style="font-size:20px">mm</span></span><span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:#8a8377">MOMENTS</span></div>
+        </div>
+      </div>
+      <div data-reveal="" style="display:flex;gap:12px;flex-wrap:wrap">
+        <a onClick="{{ goContact }}" style="background:#ece8e0;color:#0e0d0c;padding:15px 26px;border-radius:999px;font-size:14px;font-weight:500">Work with me</a>
+        <a onClick="{{ goWork }}" style="padding:15px 26px;border-radius:999px;font-size:14px;border:1px solid #3a3732">See the portfolio</a>
+      </div>
+    </div>
+  </section>
+</main>
+</sc-if>
+
+<sc-if value="{{ isContact }}" hint-placeholder-val="{{ false }}">
+<main style="padding:clamp(40px,6vw,80px) clamp(20px,4vw,56px) clamp(72px,9vw,120px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:64px;align-items:start">
+  <div data-reveal="" style="display:flex;flex-direction:column;gap:28px">
+    <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#8a8377">Enquire · Now booking 2026–27</span>
+    <h1 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(56px,7.4vw,112px);line-height:.92;letter-spacing:-.025em;margin:0">Tell me about the <em style="color:#e0913f">project</em>.</h1>
+    <p style="font-size:17px;line-height:1.7;color:#b3ac9f;margin:0;max-width:440px">I reply within one working day. Prefer email? Write to me directly.</p>
+    <div style="display:flex;flex-direction:column;gap:14px;border-top:1px solid #2a2825;padding-top:24px;font-size:15px">
+      <a href="mailto:thesakshoots@gmail.com" style="font-family:'Instrument Serif',serif;font-size:30px">thesakshoots@gmail.com</a>
+      <div style="display:flex;gap:22px;color:#b3ac9f"><a href="https://www.instagram.com/sak.shoots/" target="_blank">Instagram ↗</a><a href="https://www.youtube.com/@sakshoots" target="_blank">YouTube ↗</a></div>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:#8a8377">BRISTOL · TRAVELLING UK-WIDE</span>
+    </div>
+  </div>
+  <div data-reveal="" style="background:#161513;border:1px solid #2a2825;padding:clamp(24px,3vw,40px)">
+    <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+    <form onSubmit="{{ onSubmit }}" style="display:flex;flex-direction:column;gap:28px">
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:#8a8377">01 — WHAT DO YOU NEED?</span>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <sc-for list="{{ typeChips }}" as="ch" hint-placeholder-count="4">
+            <a onClick="{{ ch.onClick }}" style="padding:10px 16px;border-radius:999px;border:1px solid #3a3732;font-size:14px;background:{{ ch.bg }};color:{{ ch.fg }}">{{ ch.label }}</a>
+          </sc-for>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:#8a8377">02 — BUDGET</span>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <sc-for list="{{ budgetChips }}" as="ch" hint-placeholder-count="4">
+            <a onClick="{{ ch.onClick }}" style="padding:10px 16px;border-radius:999px;border:1px solid #3a3732;font-size:14px;background:{{ ch.bg }};color:{{ ch.fg }}">{{ ch.label }}</a>
+          </sc-for>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px">
+        <label style="display:flex;flex-direction:column;gap:8px"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:#8a8377">NAME</span><input required="" placeholder="Your name" style="background:transparent;border:none;border-bottom:1px solid #3a3732;padding:10px 0;color:#ece8e0;font-size:16px;outline:none"></label>
+        <label style="display:flex;flex-direction:column;gap:8px"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:#8a8377">EMAIL</span><input required="" type="email" placeholder="you@business.com" style="background:transparent;border:none;border-bottom:1px solid #3a3732;padding:10px 0;color:#ece8e0;font-size:16px;outline:none"></label>
+        <label style="display:flex;flex-direction:column;gap:8px"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:#8a8377">BUSINESS / VENUE</span><input placeholder="Optional" style="background:transparent;border:none;border-bottom:1px solid #3a3732;padding:10px 0;color:#ece8e0;font-size:16px;outline:none"></label>
+        <label style="display:flex;flex-direction:column;gap:8px"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:#8a8377">IDEAL DATE</span><input placeholder="e.g. early November" style="background:transparent;border:none;border-bottom:1px solid #3a3732;padding:10px 0;color:#ece8e0;font-size:16px;outline:none"></label>
+      </div>
+      <label style="display:flex;flex-direction:column;gap:8px"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:#8a8377">THE BRIEF</span><textarea rows="4" placeholder="Where, what, and where the images will be used." style="background:transparent;border:none;border-bottom:1px solid #3a3732;padding:10px 0;color:#ece8e0;font-size:16px;outline:none;resize:vertical"></textarea></label>
+      <button type="submit" style="align-self:flex-start;background:#e0913f;color:#0e0d0c;border:none;padding:16px 30px;border-radius:999px;font:500 15px 'Geist',sans-serif;cursor:pointer">Send enquiry →</button>
+    </form>
+    </sc-if>
+    <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+    <div style="display:flex;flex-direction:column;gap:18px;padding:40px 0">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:#e0913f">● FRAME CAPTURED</span>
+      <span style="font-family:'Instrument Serif',serif;font-size:56px;line-height:1">Thank you.</span>
+      <span style="font-size:16px;line-height:1.6;color:#b3ac9f">Your enquiry is in. I’ll be in touch within one working day.</span>
+      <a onClick="{{ goWork }}" style="font-size:14px;border-bottom:1px solid currentColor;padding-bottom:3px;align-self:flex-start">Browse the portfolio meanwhile →</a>
+    </div>
+    </sc-if>
+  </div>
+</main>
+</sc-if>
+
+<sc-if value="{{ showCta }}" hint-placeholder-val="{{ true }}">
+<section style="margin-top:clamp(96px,12vw,160px);padding:clamp(72px,9vw,120px) clamp(20px,4vw,56px);border-top:1px solid #22201d;display:flex;flex-direction:column;align-items:center;gap:30px;text-align:center">
+  <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#8a8377">Now booking 2026–27</span>
+  <h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(56px,9vw,136px);line-height:.92;letter-spacing:-.025em;margin:0">Let’s make<br><em style="color:#e0913f">something</em> good.</h2>
+  <a onClick="{{ goContact }}" style="background:#ece8e0;color:#0e0d0c;padding:17px 30px;border-radius:999px;font-size:15px;font-weight:500">Start a commission</a>
+</section>
+</sc-if>
+
+<footer style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;padding:28px clamp(20px,4vw,56px);font-size:13px;color:#8a8377;border-top:1px solid #22201d">
+  <span>© 2026 Joshua Shelley-Sak · Bristol, UK</span>
+  <div style="display:flex;gap:24px"><a href="https://www.instagram.com/sak.shoots/" target="_blank">Instagram</a><a href="https://www.youtube.com/@sakshoots" target="_blank">YouTube</a><a href="mailto:thesakshoots@gmail.com">Email</a><a href="https://sakshoots.square.site/" target="_blank">Prints</a></div>
+</footer>
+
+<div ref="{{ previewRef }}" style="position:fixed;top:0;left:0;z-index:60;width:280px;height:350px;pointer-events:none;opacity:{{ previewOpacity }};transition:opacity .25s;background:#1a1917;box-shadow:0 30px 60px rgba(0,0,0,.5)">
+  <image-slot id="cover-{{ hoverSlug }}" shape="rect" placeholder="{{ hoverName }}"></image-slot>
+  <div style="position:absolute;left:10px;bottom:10px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.1em;color:#ece8e0;text-shadow:0 1px 6px rgba(0,0,0,.7)">{{ hoverLens }}</div>
+</div>
+
+<sc-if value="{{ lbOpen }}" hint-placeholder-val="{{ false }}">
+<div style="position:fixed;inset:0;z-index:80;background:rgba(8,8,7,.96);display:flex;flex-direction:column">
+  <div style="display:flex;justify-content:space-between;align-items:center;padding:18px clamp(20px,4vw,40px);font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em;color:#b3ac9f">
+    <span><span style="color:#e0913f">FR {{ lbN }}</span> / {{ lbTotal }} · {{ proj.title }} · {{ lbLens }}</span>
+    <a onClick="{{ lbClose }}" style="color:#ece8e0;font-size:13px">CLOSE ✕</a>
+  </div>
+  <div style="flex:1;min-height:0;display:grid;grid-template-columns:64px minmax(0,1fr) 64px;align-items:center;padding:0 clamp(8px,2vw,24px) 24px">
+    <a onClick="{{ lbPrev }}" style="font-size:28px;text-align:center;color:#ece8e0">←</a>
+    <div style="height:100%;max-height:82vh;position:relative"><image-slot id="{{ lbSlot }}" shape="rect" fit="contain" placeholder="Frame {{ lbN }}"></image-slot></div>
+    <a onClick="{{ lbNext }}" style="font-size:28px;text-align:center;color:#ece8e0">→</a>
+  </div>
+</div>
+</sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;cursorPreview&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Interactions&quot;},&quot;viewfinder&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Interactions&quot;}}">
+const CATS = [
+  ['interiors','Interiors','24MM · 35MM','Restaurants, bars, hotels and homes — photographed for launches, rebrands, listings and press.'],
+  ['food','Food & Beverage','50MM','Menus, cocktails and kitchen craft, lit to make people book a table.'],
+  ['fashion-portraits','Fashion & Portraits','50MM · 85MM','Editorial portraits and fashion stories with a quiet, cinematic finish.'],
+  ['brands','Brands','35MM · 50MM','Team, product and campaign imagery for businesses that care how they’re seen.'],
+  ['music','Music','35MM · 85MM','Live events, studio sessions and artist portraits — where it all started.'],
+  ['travel-street','Travel & Street','35MM','Observational work from the road: light, place and passing moments.'],
+  ['family','Family Portraits','50MM','Relaxed, unposed sessions that feel like you on a good day.'],
+  ['weddings','Weddings','35MM · 85MM','Documentary wedding coverage — present, discreet, honest.'],
+  ['sports','Sports','85MM','Speed, grit and the moments either side of the action.'],
+  ['personal','Personal & Experimental','ANY PRIME','Self-directed work exploring memory, place and perception.']
+].map(([slug,name,lens,blurb],i)=>({slug,name,lens,blurb,n:String(i+1).padStart(2,'0')}));
+
+const REAL = {
+  interiors: [
+    {id:'mirari',title:'Mirari',place:'Cheltenham',brief:'Restaurant launch — website & press',lens:'35mm f/1.8',year:'2025'},
+    {id:'club-ocho',title:'Club Ocho',place:'Cheltenham',brief:'Interiors for rebrand & website',lens:'24mm / 35mm',year:'2025'},
+    {id:'lamb-inn',title:'The Lamb Inn',place:'The Cotswolds',brief:'Country inn, bar & rooms',lens:'35mm',year:'2024'},
+    {id:'kissaten',title:'Kissaten',place:'Portugal',brief:'Listening bar & Airbnb',lens:'35mm / 50mm',year:'2024'}
+  ]
+};
+const projectsFor = c => REAL[c.slug] || [{id:c.slug+'-selected',title:'Selected frames',place:'UK',brief:c.blurb,lens:c.lens.toLowerCase(),year:'2024–25'}];
+const LENSES = ['35MM','50MM','24MM','85MM','35MM','50MM','35MM','85MM','50MM'];
+const COLS = ['span 8','span 4','span 4','span 4','span 4','span 5','span 7','span 6','span 6'];
+const HS = ['560px','560px','420px','420px','420px','480px','480px','400px','400px'];
+const TYPES = ['Interiors & venue','Brand & people','Event / music','Something else'];
+const BUDGETS = ['< £500','£500–1k','£1–2.5k','£2.5k+'];
+
+class Component extends DCLogic {
+  state = { page:'home', cat:'interiors', proj:'mirari', hover:null, lb:null, type:0, budget:null, sent:false };
+  previewRef = React.createRef();
+
+  go = (page, extra) => { this.setState({ page, lb:null, hover:null, ...(extra||{}) }); window.scrollTo(0,0); };
+
+  componentDidMount() {
+    this.onKey = e => {
+      if (this.state.lb == null) return;
+      if (e.key === 'Escape') this.setState({ lb:null });
+      if (e.key === 'ArrowRight') this.step(1);
+      if (e.key === 'ArrowLeft') this.step(-1);
+    };
+    window.addEventListener('keydown', this.onKey);
+    this.io = new IntersectionObserver(es => es.forEach(en => {
+      if (en.isIntersecting) { en.target.style.opacity = '1'; en.target.style.transform = 'none'; this.io.unobserve(en.target); }
+    }), { threshold: 0.12 });
+    this.reveal();
+  }
+  componentDidUpdate() { this.reveal(); }
+  componentWillUnmount() { window.removeEventListener('keydown', this.onKey); this.io && this.io.disconnect(); }
+  reveal() {
+    requestAnimationFrame(() => document.querySelectorAll('[data-reveal]:not([data-rv])').forEach(el => {
+      el.setAttribute('data-rv','');
+      el.style.opacity = '0'; el.style.transform = 'translateY(28px)';
+      el.style.transition = 'opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1)';
+      this.io.observe(el);
+    }));
+  }
+  step(d) { this.setState(s => ({ lb: (s.lb + d + 9) % 9 })); }
+
+  renderVals() {
+    const s = this.state;
+    const cat = CATS.find(c => c.slug === s.cat) || CATS[0];
+    const projs = projectsFor(cat);
+    const pIdx = Math.max(0, projs.findIndex(p => p.id === s.proj));
+    const proj = { ...projs[pIdx], catName: cat.name };
+    const nxt = projs.length > 1 ? projs[(pIdx+1) % projs.length] : null;
+    const nextCat = CATS[(CATS.indexOf(cat)+1) % CATS.length];
+    const openCat = slug => () => this.go('work', { cat:slug });
+    const openProj = (slug,id) => () => this.go('project', { cat:slug, proj:id });
+    const hov = s.hover != null ? CATS[s.hover] : CATS[0];
+    const cursorOn = this.props.cursorPreview ?? true;
+    const chip = on => ({ bg: on ? '#ece8e0' : 'transparent', fg: on ? '#0e0d0c' : '#ece8e0' });
+
+    return {
+      isHome: s.page==='home', isWork: s.page==='work', isProject: s.page==='project',
+      isWorkNav: s.page==='work' || s.page==='project',
+      isServices: s.page==='services', isAbout: s.page==='about', isContact: s.page==='contact',
+      showCta: s.page!=='contact',
+      viewfinder: this.props.viewfinder ?? true,
+      goHome: () => this.go('home'), goWork: () => this.go('work'), goServices: () => this.go('services'),
+      goAbout: () => this.go('about'), goContact: () => this.go('contact', { sent:false }),
+
+      featured: [
+        ['mirari','interiors','Mirari','Interiors','35MM'],['club-ocho','interiors','Club Ocho','Interiors','24MM'],
+        ['lamb-inn','interiors','The Lamb Inn','Interiors','35MM'],['food-selected','food','Food & Beverage','Hospitality','50MM'],
+        ['brands-selected','brands','Brands','Campaign','50MM'],['music-selected','music','Music','Live','85MM']
+      ].map(([id,slug,title,tag,lens],i) => ({ slot:'feat-'+id, title, tag, lens, n:'FR '+String(i+1).padStart(3,'0'), onClick: openProj(slug,id) })),
+
+      cats: CATS.map((c,i) => ({ ...c, onClick: openCat(c.slug), onEnter: () => cursorOn && this.setState({ hover:i }) })),
+      onIndexMove: e => { const el = this.previewRef.current; if (el) el.style.transform = `translate(${e.clientX+28}px, ${e.clientY-175}px) rotate(-2deg)`; },
+      onIndexLeave: () => this.setState({ hover:null }),
+      previewRef: this.previewRef,
+      previewOpacity: s.hover != null && s.page==='home' ? 1 : 0,
+      hoverSlug: hov.slug, hoverName: hov.name, hoverLens: hov.n+' · '+hov.lens,
+
+      catTabs: CATS.map(c => ({ name:c.name, onClick: openCat(c.slug), ...chip(c.slug===cat.slug) })),
+      cat,
+      projects: projs.map(p => ({ ...p, slot:'lead-'+p.id, onClick: openProj(cat.slug,p.id) })),
+
+      proj,
+      backToCat: openCat(cat.slug),
+      frames: COLS.map((col,i) => ({ col, h:HS[i], n:String(i+1).padStart(2,'0'), lens:LENSES[i], slot:`fr-${proj.id}-${i+1}`, open: () => this.setState({ lb:i }) })),
+      nextProj: nxt ? { title:nxt.title, onClick: openProj(cat.slug,nxt.id) } : { title:nextCat.name, onClick: openCat(nextCat.slug) },
+
+      lbOpen: s.lb != null,
+      lbN: String((s.lb??0)+1).padStart(2,'0'), lbTotal:'09', lbLens: LENSES[s.lb??0],
+      lbSlot: `fr-${proj.id}-${(s.lb??0)+1}`,
+      lbClose: () => this.setState({ lb:null }), lbPrev: () => this.step(-1), lbNext: () => this.step(1),
+
+      typeChips: TYPES.map((label,i) => ({ label, onClick: () => this.setState({ type:i }), ...chip(s.type===i) })),
+      budgetChips: BUDGETS.map((label,i) => ({ label, onClick: () => this.setState({ budget:i }), ...chip(s.budget===i) })),
+      onSubmit: e => { e.preventDefault(); this.setState({ sent:true }); },
+      sent: s.sent, notSent: !s.sent
+    };
+  }
+}
+</script>
+</body>
+</html>

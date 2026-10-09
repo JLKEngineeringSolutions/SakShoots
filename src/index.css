@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0e0d0c;
+  --bg-soft: #161513;
+  --bg-card: #1a1917;
+  --text: #ece8e0;
+  --text-soft: #b3ac9f;
+  --text-muted: #8a8377;
+  --accent: #e0913f;
+  --accent-light: #f0a55a;
+  --border: #22201d;
+  --border-soft: #2a2825;
+  --border-light: #3a3732;
+  --border-bright: #ece8e0;
+  --text-dark: #0e0d0c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Geist', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+input, textarea, button {
+  font-family: inherit;
+}
+
+.font-serif {
+  font-family: 'Instrument Serif', serif;
+  font-weight: 400;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.font-sans {
+  font-family: 'Geist', sans-serif;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.9s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: none;
+}
+
+@keyframes admin-fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes admin-slide-in { from { transform: translateX(32px); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes admin-rise-in { from { transform: translateY(10px); opacity: 0; } to { transform: none; opacity: 1; } }
+.admin-fade { animation: admin-fade-in 0.2s ease-out; }
+.admin-slide { animation: admin-slide-in 0.28s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.admin-rise { animation: admin-rise-in 0.35s cubic-bezier(0.2, 0.8, 0.2, 1); }
+
+.film-strip {
+  background: repeating-linear-gradient(90deg, #34312c 0 14px, transparent 14px 30px);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.link-hover {
+  transition: opacity 0.2s;
+  cursor: pointer;
+}
+
+.link-hover:hover {
+  opacity: 0.65;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+}
